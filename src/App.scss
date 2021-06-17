@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // padding: 2rem 2rem;
+}
+
+.container {
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  overflow: hidden;
+  &:hover {
+    overflow-y: scroll;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 3rem;
+  background: #f7f7f7;
+  h1 {
+    flex: 2;
+
+  }
+}
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 1rem;
+  // flex-wrap: wrap;
+  .captation {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    /* width: 100%; */
+    justify-content: center;
+    h3{
+      padding: 1rem;
+    }
+    p{
+      padding: 1rem;
+    }
+  }
+  .image {
+    display: flex;
+    justify-content: center;
+    img {
+      border-radius: 15%;
+      width: 80%;
+    }
+  }
+  // * In case text needs to be displayed on the right side of image in wider screens
+//  @media(min-width: 1024px){
+//   justify-content: center;
+//   flex-direction: row;
+//  }
+}
+
+
+
