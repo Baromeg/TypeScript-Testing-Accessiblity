@@ -7,7 +7,8 @@ import {
   act,
   fireEvent
 } from '@testing-library/react'
-import App, { replaceCamelWithSpaces } from './App'
+import App from './App'
+import { replaceCamelWithSpaces } from './components/ButtonColor'
 import axios from 'axios'
 
 test('renders Data Stories header', () => {
@@ -47,7 +48,7 @@ test('Button has correct initial color', () => {
   expect(colorButton).toHaveStyle('background-color: MidnightBlue')
 
   // expect the button text to be 'Change to MediumVioletRed'
-  expect(colorButton.textContent).toBe('Change to Medium Violet Red')
+  expect(colorButton).toHaveTextContent('Change to Medium Violet Red')
 })
 
 test('initial conditions', () => {
