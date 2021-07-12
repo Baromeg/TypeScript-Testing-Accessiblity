@@ -22,7 +22,9 @@ body {
 
 header {
   display: flex;
-  justify-content: space-around;
+  // justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
   padding: 1rem 3rem;
   background: #f7f7f7;
   h1 {
@@ -64,5 +66,8 @@ main {
 //  }
 }
 
-
+form{
+  display: flex;
+  flex-direction: column;
+}
 

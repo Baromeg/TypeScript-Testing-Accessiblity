@@ -1,17 +1,11 @@
 import React from 'react'
-import {
-  render,
-  screen,
-  cleanup,
-  waitFor,
-  act,
-  fireEvent
-} from '@testing-library/react'
+import { render, screen, cleanup, waitFor, act } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import App from './App'
 import { replaceCamelWithSpaces } from './components/ButtonColor'
 import axios from 'axios'
 
-test('renders Data Stories header', () => {
+test('renders Donuts', () => {
   // Render creates a virtual dom for the selected component
   render(<App />)
   const textElement = screen.getByText(/donuts/i)
@@ -42,7 +36,7 @@ test('Button has correct initial color', () => {
   expect(colorButton).toHaveStyle('background-color: MediumVioletRed')
 
   // click button
-  fireEvent.click(colorButton)
+  userEvent.click(colorButton)
 
   // expect to have a background color of MidnightBlue
   expect(colorButton).toHaveStyle('background-color: MidnightBlue')
@@ -59,7 +53,9 @@ test('initial conditions', () => {
   })
   expect(colorButton).toBeEnabled()
   // check that the checkbox starts out unchecked
-  const checkbox = screen.getByRole('checkbox')
+  const checkbox = screen.getByRole('checkbox', {
+    name: 'Disable button'
+  })
   expect(checkbox).not.toBeChecked()
 })
 
@@ -70,10 +66,10 @@ test('when checkbox is checked, button should be disabled', () => {
   })
   const checkBox = screen.getByRole('checkbox', { name: 'Disable button' })
 
-  fireEvent.click(checkBox)
+  userEvent.click(checkBox)
   expect(colorButton).toBeDisabled()
 
-  fireEvent.click(checkBox)
+  userEvent.click(checkBox)
   expect(colorButton).toBeEnabled()
 })
 
@@ -84,10 +80,10 @@ test('when checkbox is checked, button should be gray', () => {
   })
   const checkBox = screen.getByRole('checkbox', { name: 'Disable button' })
 
-  fireEvent.click(checkBox)
+  userEvent.click(checkBox)
   expect(colorButton).toHaveStyle('background-color: gray')
 
-  fireEvent.click(checkBox)
+  userEvent.click(checkBox)
   expect(colorButton).toHaveStyle('background-color: MediumVioletRed;')
 })
 
